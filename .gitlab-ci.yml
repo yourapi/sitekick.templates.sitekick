@@ -1,0 +1,22 @@
+image: alpine:latest
+
+before_script:
+  - apk add --no-cache curl
+
+variables:
+  CLIENT: sitekick
+  PRODUCTION_URL: "https://my.sitekick.online"
+  PRODUCTION_HOSTNAME: my.sitekick.online
+  PREVIEW_URL_PATH: "?page=pages/security&domain=abc.nl"
+
+
+trigger_build:
+  stage: deploy
+  tags:
+    - slim
+  environment:
+    name: "Preview-$CI_COMMIT_REF_NAME"
+    url: "https://$CLIENT-$CI_COMMIT_REF_NAME.sitekick.online$PREVIEW_URL_PATH"
+  image: registry.gitlab.com/finestructure/pipeline-trigger
+  script:
+    - trigger -a $GITLAB_API_KEY -p cb4d98c102549ba11e3e3a75bd4d9d -t preview-apps -e CLIENT=$CLIENT -e CLIENT_HOSTNAME=$PRODUCTION_HOSTNAME -e CLIENT_URL=$PRODUCTION_URL -e CLIENT_BRANCH="$CI_COMMIT_REF_NAME" -e CLIENT_HASH="$CI_COMMIT_SHA" 12898193

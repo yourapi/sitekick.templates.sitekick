@@ -17,7 +17,7 @@ variables:
 
   # Select the master container version, vx.x; Or use "master" for the latest and greatest.
   # Using master however can cause a breaking change to appear on production. Use with caution
-  CONTAINER_VERSION: "v1.01"
+  CONTAINER_VERSION: "v1.02"
 
 
 trigger_build:

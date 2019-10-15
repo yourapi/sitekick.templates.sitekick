@@ -1,0 +1,15 @@
+<div class="row text-left">
+  <div class="col-xs-12 col-md-10">
+    <h1 class="h1font">Tips over gebruikerservaring van je website</h1>
+    <h2 class="h2tips">{{domain}} om {{fetchTime}}</h2>
+  </div>
+</div>
+<img src="{% http 'url' %} ok://sitekick/render/templates/mockups/image?template=website-scanner-small&type=gif&domain={{domain}} {% endhttp %}"
+     style="max-width:100%;">
+<img src="{% http 'url' %} ok://sitekick/render/templates/mockups/image?template=iphone-x-small&type=png&domain={{domain}} {% endhttp %}"
+     style="max-width:100%;">
+
+<!-- {% http 'url' %} ok://internet/website/audit/lighthouse/device?domain={{domain}}&device=mobile {% endhttp %} -->
+<!-- {% http 'url' %} ok://internet/website/audit/lighthouse/device?domain={{domain}}&device=desktop {% endhttp %} -->
+<!-- {% http 'url' %} ok://internet/website/audit/httpscertificate/url?domain={{domain}} {% endhttp %} -->
+<!-- {% http 'url' %} ok://internet/website/audit/brokenlinks/url?domain={{domain}} {% endhttp %} -->

@@ -1,0 +1,40 @@
+<div class="row text-left">
+  <div class="column-1">
+    <h1 class="h1font">Links op je website</h1>
+    <h2 class="h2tips">{% if custom.SitehulpBrokenLinks %}
+      Er zijn niet-werkende links gevonden
+      {% else %}
+      Alle links op je website werken goed {% endif %}</h2>
+    Het is belangrijk om te weten dat één van de manieren waarop zoekmachines (zoals google) je website indexeren is
+    om de verwijzingen (links) van jou website naar andere websites te volgen.<br/>
+    Als er links van <a href="https://www.{{domain}}" target="_blank">www.{{domain}}</a> naar andere websites worden
+    gevolgd
+    en die doen het niet (meer) dan kan dat negatieve gevolgen hebben voor de waardering die een zoekmachine
+    aan je website geeft.
+    {% if custom.SitehulpBrokenLinks %}
+    <br/>We hebben in het kader van de Argeweb Sitehulp op je website een aantal zogenaamde dode links gevonden, dit
+    zijn verwijzingen naar pagina's die niet meer bestaan of niet meer werken. We hebben
+    {{custom.SitehulpAantalBrokenLinks}} gevonden die niet werken:<br/>
+    {{custom.SitehulpLinks}}
+    {% else %}
+    Daarnaast is het voor bezoekers natuurlijk irritant als ze ergens op klikken en nergens uitkomen.<br/>
+    We hebben in het kader van de Argeweb Sitehulp op je website gekeken naar zogenaamde dode links, dit zijn
+    verwijzingen naar pagina's die niet meer bestaan of niet meer werken.
+    We hebben {{custom.SitehulpAantalWerkendeLinks}} links bekeken, maar die werkten gelukkig allemaal!
+    {% endif %}
+  </div>
+  <div class="column-2 text-center">
+    <div class="userrate">
+      <div>
+        <app-category-score score="45" color="#ffd215" image="/assets/templates/landingpage/images/user-experience-score.png"></app-category-score>
+      </div>
+      <span>Werkende links</span>
+    </div>
+
+    <div class="mobiele-weergave">
+      <img
+        src="{% http 'url' %} ok://sitekick/render/templates/mockups/image?template=iphone-x-small&type=png&domain={{domain}} {% endhttp %}"
+        alt="Mobiele weergave van de website">
+    </div>
+  </div>
+</div>

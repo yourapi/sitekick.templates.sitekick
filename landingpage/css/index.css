@@ -1,0 +1,7 @@
+/*
+ Just import all additional CSS or SCSS needed for the template to display properly
+ Additional files are ignored.
+*/
+
+@import 'custom.css';
+@import "open-sans-google-fonts.css";

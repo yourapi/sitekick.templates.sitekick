@@ -1,0 +1,87 @@
+<div class="row text-left">
+  <div class="column-1">
+    <h1 class="h1font">Tips over gebruikerservaring van je website</h1>
+    {% if custom.SitehulpMobileFriendly %}
+    <div class="card">
+      <div class="card-body">
+        <div class="headstyling">
+            {{domain}} werkt goed op mobiele devices!
+        </div>
+        <p class="card-text">We hebben recentelijk je website www.{{domain}} bekeken op een mobiele telefoon en we waren onder de indruk.
+        Bekijk hiernaast hoe je website er op een mobiele telefoon uitziet.<br/>
+        <br/>
+        Jouw website scoort op het gebied van mobiele gebruikers ervaring beter dan 62% van de websites die bij
+        Argeweb worden gehost. De cijfers wijzen uit dat steeds meer website bezoek vanaf mobiele telefoons wordt
+        gepleegd, en het is bijna onmogelijk alle ontwikkelingen in de gaten te houden.
+      </div> 
+    </div>      
+    {% else %}
+    <div class="card">
+      <div class="card-body">
+        <div class="headstyling">
+            {{domain}} werkt niet goed op mobiele devices
+        </div>
+        <p class="card-text">We hebben recentelijk je website www.{{domain}} bekeken op een mobiele telefoon en we zien
+        dat de website niet goed wordt weergegeven. Bekijk hiernaast hoe je website er op een mobiele telefoon uitziet.<br/>
+      </div> 
+    </div> 
+    
+    <div class="card">
+      <div class="card-body">
+        <a href="https://www.argeweb.nl/blog/wptouch-automatisch-responsive-website/">
+          <div class="headstyling">
+            <span class="tipblack">Tip 1</span>Installeer de WPtouch plugin
+          </div>
+        </a>
+
+        <p class="card-text">Een mobielvriendelijke website is tegenwoordig erg belangrijk aangezien Google tegenwoordig
+          alleen nog maar kijkt naar je mobiele website. Redenen genoeg dus om
+          ervoor te zorgen dat je mobiele website in orde is. WPtouch is een plug-in voor je WordPress website die je
+          website automatisch responsive (mobiel vriendelijk) maakt.</p>
+      </div>
+    </div> 
+      <img class="card-img-top" src="/assets/templates/landingpage/images/wp-touch.png" alt="">
+      <div class="category">
+<!--        <span class="security">Veiligheid</span>-->
+        <span class="usability">Gebruikers ervaring</span>
+      </div>
+      <div class="card-footer">
+        <a href="https://argeweb.nl/webdesign/" class="button">Hulp Nodig?</a>
+      </div>
+
+    </div>
+  </div>    
+    {% endif %}
+<!-- broken links-->
+    {% if custom.SitehulpBrokenLinks %}
+    <div class="card">
+      <div class="card-body">
+        <div class="headstyling">
+            {{domain}} heeft een aantal niet werkende verwijzingen(links)
+        </div>
+        <p class="card-text">  
+        <br/>We hebben in het kader van de Argeweb Sitehulp op je website een aantal zogenaamde dode links gevonden, dit
+        zijn verwijzingen naar pagina's die niet meer bestaan of niet meer werken. We hebben
+        {{custom.SitehulpAantalBrokenLinks}} gevonden die niet werken:<br/>
+        {{custom.SitehulpLinks}}
+      </div>
+    </div>            
+  {% else %}
+  
+  {% endif %}
+</div>
+  <div class="column-2 text-center">
+    <div class="userrate">
+      <div>
+        <app-category-score score="{{ categories['best-practices']|perc }}" color="#ff5c62" image="/assets/templates/landingpage/images/icon_ux.png"></app-category-score>
+      </div>
+      <span>Gebruikerservaringsscore</span>
+    </div>
+
+    <div class="mobiele-weergave">
+      <img
+        src="{% http 'url' %} ok://sitekick/render/templates/mockups/image?template=argeweb/iphone-x-small&type=gif&domain={{domain}} {% endhttp %}"
+        alt="Mobiele weergave van de website">
+    </div>
+  </div>
+</div>

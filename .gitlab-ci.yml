@@ -4,10 +4,20 @@ before_script:
   - apk add --no-cache curl
 
 variables:
+  # Client name, must match the last part of this repo name (sitekick.templates.<client>)
   CLIENT: sitekick
+
+  # The desired production URL and hostname, if different than <client>.sitekick.online.
+  # If different: please point DNS to sitekick host (CNAME: ingress.okapifordevelopers.com).
   PRODUCTION_URL: "https://my.sitekick.online"
   PRODUCTION_HOSTNAME: my.sitekick.online
+
+  # The url for the preview environment can be extended with a path and/or query parameters
   PREVIEW_URL_PATH: "?page=pages/security&domain=abc.nl"
+
+  # Select the master container version, vx.x; Or use "master" for the latest and greatest.
+  # Using master however can cause a breaking change to appear on production. Use with caution
+  CONTAINER_VERSION: "v1.02"
 
 
 trigger_build:
@@ -19,4 +29,4 @@ trigger_build:
     url: "https://$CLIENT-$CI_COMMIT_REF_NAME.sitekick.online$PREVIEW_URL_PATH"
   image: registry.gitlab.com/finestructure/pipeline-trigger
   script:
-    - trigger -a $GITLAB_API_KEY -p cb4d98c102549ba11e3e3a75bd4d9d -t preview-apps -e CLIENT=$CLIENT -e CLIENT_HOSTNAME=$PRODUCTION_HOSTNAME -e CLIENT_URL=$PRODUCTION_URL -e CLIENT_BRANCH="$CI_COMMIT_REF_NAME" -e CLIENT_HASH="$CI_COMMIT_SHA" 12898193
+    - trigger -a $GITLAB_API_KEY -p cb4d98c102549ba11e3e3a75bd4d9d -t $CONTAINER_VERSION -e CLIENT=$CLIENT -e CLIENT_HOSTNAME=$PRODUCTION_HOSTNAME -e CLIENT_URL=$PRODUCTION_URL -e CLIENT_BRANCH="$CI_COMMIT_REF_NAME" -e CLIENT_HASH="$CI_COMMIT_SHA" 12898193

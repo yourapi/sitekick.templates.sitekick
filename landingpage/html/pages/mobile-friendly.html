@@ -1,0 +1,66 @@
+<div class="row text-left">
+  <div class="column-1">
+    <h1 class="h1font">Mobiele weergave van je website</h1>
+    <h2 class="h2tips">{% if custom.SitehulpMobileFriendly %}
+      {{domain}} werkt goed op mobiele devices
+      {% else %}
+      {{domain}} werkt niet goed op mobiele devices
+      {% endif %}
+    </h2>
+    {% if custom.SitehulpMobileFriendly %}
+    We hebben recentelijk je website www.{{domain}} bekeken op een mobiele telefoon en we waren onder de indruk.
+    Bekijk hiernaast hoe je website er op een mobiele telefoon uitziet:<br/>
+    <br/>
+    Jouw website scoort op het gebied van mobiele gebruikers ervaring beter dan 62% van de websites die bij
+    Argeweb worden gehost. De cijfers wijzen uit dat steeds meer website bezoek vanaf mobiele telefoons wordt
+    gepleegd, en het is bijna onmogelijk alle ontwikkelingen in de gaten te houden.
+    {% else %}
+    We hebben recentelijk je website www.{{domain}} bekeken op een mobiele telefoon en we zien
+    dat de website niet goed wordt weergegeven. Bekijk hiernaast hoe je website er op een mobiele telefoon uitziet:<br/>
+    <br/>
+    Gebruikerservaring, vaak afgekort tot User Experience of UX, draait om het gedrag, de perceptie, de reacties
+    en de emoties van een persoon bij het gebruiken van je website.<br/>
+    Het spreekt voor zich dat een betere gebruikerservaring er een betere emotie wordt opgewekt
+    en je makkelijker je doel kunt bereiken.
+    {% endif %}
+
+    <div class="card">
+      <div class="card-body">
+        <a href="https://www.argeweb.nl/blog/wptouch-automatisch-responsive-website/">
+          <div class="headstyling">
+            <span class="tipblack">Tip 1</span>Installeer de WPtouch plugin
+          </div>
+        </a>
+
+        <p class="card-text">Een mobielvriendelijke website is tegenwoordig erg belangrijk aangezien Google tegenwoordig
+          alleen nog maar kijkt naar je mobiele website. Redenen genoeg dus om
+          ervoor te zorgen dat je mobiele website in orde is. WPtouch is een plug-in voor je WordPress website die je
+          website automatisch responsive (mobiel vriendelijk) maakt.</p>
+      </div>
+
+      <img class="card-img-top" src="/assets/templates/landingpage/images/wp-touch.png" alt="">
+      <div class="category">
+<!--        <span class="security">Veiligheid</span>-->
+        <span class="usability">Gebruikers ervaring</span>
+      </div>
+      <div class="card-footer">
+        <a href="https://argeweb.nl/webdesign/" class="button">Hulp Nodig?</a>
+      </div>
+
+    </div>
+  </div>
+  <div class="column-2 text-center">
+    <div class="userrate">
+      <div>
+        <app-category-score score="11" color="#ff5c62" image="/assets/templates/landingpage/images/user-experience-score.png"></app-category-score>
+      </div>
+      <span>Vindbaarheid</span>
+    </div>
+
+    <div class="mobiele-weergave">
+      <img
+        src="{% http 'url' %} ok://sitekick/render/templates/mockups/image?template=iphone-x-small&type=gif&domain={{domain}} {% endhttp %}"
+        alt="Mobiele weergave van de website">
+    </div>
+  </div>
+</div>

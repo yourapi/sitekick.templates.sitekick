@@ -1,0 +1,75 @@
+<div class="row text-left">
+  <div class="column-1">
+    <h1 class="h1font">Veiligheid van je website</h1>
+    <h2 class="h2tips">{% if custom.SitehulpSSL %}
+      {{ domain }} straalt veiligheid uit
+      {% else %}
+      {{ domain }} straalt <b>geen</b> veiligheid uit
+      {% endif %}
+    </h2>
+    {% if custom.SitehulpSSL %}
+    Zoals je eerder hebt kunnen lezen is Argeweb als eerste hosting provider in Nederland begonnen met het
+    actief adviseren van onze klanten over hun website. Eén van de onderdelen waar we naar kijken is of onze
+    klanten al SSL gebruiken voor hun website. Jouw website heeft het op dat punt al goed voor elkaar.
+    Jouw website scoort nu op het gebied van veiligheid beter dan 59% van de websites die bij Argeweb worden gehost!
+    Wist je trouwens dat je bij Argeweb ook een zogenaamd <b>EV certificaat</b> kunt afnemen? Bij een
+    <b>EV certificaat</b> staat de bedrijfsnaam van het bedrijf in de browserbalk, zoals je hieronder kunt
+    zien.<br/><br/>
+    <img src="/assets/templates/landingpage/images/https/ev-browser.jpg" alt="Extended Validation">
+    {% else %}
+    Zoals je eerder hebt kunnen lezen is Argeweb als eerste hosting provider in Nederland begonnen met het actief
+    adviseren van onze klanten over hun website.<br/>
+    Eén van de onderdelen waar we naar kijken is naar de veiligheid van je website. Jouw website heeft
+    op dat punt nog wel wat te winnen. Op dit moment is je website alleen bereikbaar via
+    http://www.{{domain}} en <i>niet</i> onder http<b>s</b>://www.{{domain}}.
+    Kijk hieronder hoe dat eruit ziet voor bezoekers en wat er verbeterd kan worden:
+    <i>plaatje https toevoegen</i>
+    SSL, staat voor Secure Socket Layer en wordt gebruikt om een veilige verbinding tussen gebruikers en
+    www.{{domain}} op te zetten.
+    Sinds 2018 worden websites zonder SSL (slotje) lager in Google getoond dan websites met slotje.
+    Ook tonen veel browsers steeds nadrukkelijker dat je website “niet veilig” is.
+    {% endif %}
+
+    <div class="card">
+      <div class="card-body">
+        <a href="https://www.argeweb.nl/blog/update_ssl/">
+          <div class="headstyling">
+            <span class="tipblack">Tip 1</span>Activeer SSL voor je domein
+          </div>
+        </a>
+
+        <p class="card-text">Ons vertrouwen in organisaties wordt tegenwoordig continu op de proef gesteld. Zo is uit
+          een onderzoek van RTL Z gebleken dat bij het online inschrijven en/of afspraak maken bij de huisarts je
+          gegevens in veel gevallen niet goed beveiligd zijn. Dit komt omdat dergelijke websites zonder een SSL
+          certificaat draaien. Jij wilt toch ook dat de gegevens van jou en je klanten goed beveiligd zijn?</p>
+      </div>
+
+      <img class="card-img-top" src="/assets/templates/landingpage/images/ssl-certificate.png" alt="">
+      <div class="category">
+        <span class="security">Veiligheid</span>
+<!--        <span class="usability">Gebruikers ervaring</span>-->
+      </div>
+      <div class="card-footer">
+        <a href="https://argeweb.nl/webdesign/" class="button">Hulp Nodig?</a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="column-2 text-center">
+    <div class="userrate">
+      <div>
+        <app-category-score score="87" color="#0cc100"
+                            image="/assets/templates/landingpage/images/user-experience-score.png"></app-category-score>
+      </div>
+      <span>Gebruikers ervaring</span>
+    </div>
+
+    <div class="mobiele-weergave">
+      <img
+        src="{% http 'url' %} ok://sitekick/render/templates/mockups/image?template=iphone-x-small&type=png&domain={{domain}} {% endhttp %}"
+        alt="Mobiele weergave van de website">
+    </div>
+  </div>
+</div>

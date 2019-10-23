@@ -1,0 +1,18 @@
+<!-- Do the mapping of the autopilot fields -->
+<h1>
+string--SitehulpSEO            = {{ categories.seo }} <br/>
+string--SitehulpBestPractices  = {{ categories['best-practices'] }} <br/>
+string--SitehulpPerformance    = {{ categories.performance }} <br/>
+</h1>
+{% autopilot %}
+string--SitehulpSEO            = {{ categories.seo | perc }}
+string--SitehulpBEO            = {{ categories['test-value'].links }}
+string--SitehulpCEO            = {{ testa.testb.testc }}
+string--SitehulpDEO            = {{ testa.testb[2].testc[3].testd }}
+string--SitehulpEEO            = {{ testa.testb['test space 1'].testc['test space 2'].testd }}
+{% endautopilot %}
+<h2>
+string--SitehulpSEO            = {{ categories.seo | perc }} <br/>
+string--SitehulpBestPractices  = {{ categories['best-practices'] | perc }} <br/>
+string--SitehulpPerformance    = {{ categories.performance | perc }} <br/>
+</h2>

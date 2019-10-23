@@ -1,0 +1,10 @@
+<!-- Do the mapping of the autopilot fields -->
+<h1>
+  string--SitehulpLinks = {{ sources.brokenlinks.report.links[:2] }} <br/>
+  string--SitehulpLinks = {{ sources.brokenlinks.report.links[0].broken }} <br/>
+  string--SitehulpLinks = {{ sources.brokenlinks.report.links[1].broken }} <br/>
+  {% for item in sources.brokenlinks.report.links %}
+  <h3>{{item.broken}} {{item.ignored}} {{item.internal}} {{item.page}} {{item.url}}</h3>
+  {% endfor %}
+
+</h1>

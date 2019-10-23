@@ -1,0 +1,34 @@
+<p>
+  validTo = {{ sources.httpscertificate.report.validTo }} <br/>
+  {% for d in sources.httpscertificate.report.subjectAlternativeName %}
+<h3>{{d}}</h3>
+{% endfor %}
+
+{{ audit['https-invalid'] }}
+{% if audit['https-valid'] %}
+https-valid
+{% endif %}
+
+{% if audits['https-valid'] %}
+https-valid
+{% endif %}
+
+<div class="mobiele-weergave">
+  {% img %}
+  template=sitekick/iphone-x-small
+  type="png"
+  alt="Mobiele weergave van de website"
+  date="{{timestamp | date}}"
+  url="{{domain}}"
+  {% endimg %}
+</div>
+
+<div class="mobiele-weergave">
+  {% img %}
+  template=sitekick/missing
+  type="png"
+  alt="Missing picture"
+  {% endimg %}
+</div>
+{% http %}https://www.alexa.newfun.nl/autopilot/image_grab.php?domeinnaam={{domain}}&action=image_grab{% endhttp %}
+</p>

@@ -1,0 +1,5 @@
+<!-- Do the mapping of the autopilot fields -->
+{% autopilot %}
+  string-ScanningPictureURL = "{% http 'url' %} ok://sitekick/render/templates/mockups/image?template=sitekick/website-scanner-small&type=gif&domain={{domain}} {% endhttp %}"
+  string-ScannedPictureURL = "{% http 'url' %} ok://sitekick/render/templates/mockups/image?template=sitekick/website-scanner-small&type=png&domain={{domain}} {% endhttp %}"
+{% endautopilot %}

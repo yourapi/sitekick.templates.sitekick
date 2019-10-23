@@ -1,0 +1,6 @@
+<!-- Do the mapping of the autopilot fields -->
+{% autopilot %}
+string--SitehulpSEO            = {{ categories.seo | perc }}
+string--SitehulpBestPractices  = {{ categories['best-practices'] | perc }}
+string--SitehulpPerformance    = {{ categories.performance | perc }}
+{% endautopilot %}

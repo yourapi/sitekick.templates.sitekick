@@ -1,0 +1,20 @@
+<!-- Do the mapping of the autopilot fields -->
+<h1>
+  string--SitehulpSEO = {{ categories.seo }} <br/>
+  string--SitehulpBestPractices = {{ categories['best-practices'] }} <br/>
+  string--SitehulpPerformance = {{ categories.performance }} <br/>
+  string--SitehulpLinks = {{ sources.brokenlinks.report.links[:2] }} <br/>
+  string--SitehulpLinks = {{ sources.brokenlinks.report.links[0].broken }} <br/>
+  string--SitehulpLinks = {{ sources.brokenlinks.report.links[0].broken }} <br/>
+</h1>
+{% autopilot %}
+string--SitehulpScanningPictureURL      = {% http %} ok://sitekick/render/templates/mockups/image?template=local/website-scanner-small&type=gif&domain={{domain}} {% endhttp %}
+string--SitehulpScannedPictureURL       = {% http %} ok://sitekick/render/templates/mockups/image?template=local/website-scanner-small&type=png&domain={{domain}} {% endhttp %}
+{% endautopilot %}
+<h2>
+  ScanningPictureURL = {{ custom.SitehulpScanningPictureURL }} <br/>
+  string--SitehulpBEO            = {{ categories['test-value'].links }} <br/>
+  string--SitehulpSEO = {{ categories.seo | perc }} <br/>
+  string--SitehulpBestPractices = {{ categories['best-practices'] | perc }} <br/>
+  string--SitehulpPerformance = {{ categories.performance | perc }} <br/>
+</h2>

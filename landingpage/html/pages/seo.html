@@ -1,6 +1,95 @@
 <div class="row text-left">
-  <div class="col-xs-12 col-md-10">
-    <h1 class="h1font">Tips over vindbaarheid van je website</h1>
-    <h2 class="h2tips">2 persoonlijke sitehulp tips</h2>
+	  <div class="column-1">
+	    <h1 class="h1font">Verbeter de vindbaarheid van je website</h1>
+	    <h2 class="h2tips">2 persoonlijke sitehulp controles</h2>
+	    {{ sources.httpscertificate.report.validTo }}		
+  		{% if audits['meta-description'] %}
+			<div class="card">
+				<div class="card-body">
+		  		<div class="headstyling">
+		    		{{ domain }} heeft een meta-beschrijving
+		  		</div>
+					<p class="card-text">
+						Hoe vertel je in een paar regels wat bezoekers allemaal op je website kunnen verwachten? Zoekmachines als Google en Bing gebruiken de zogenaamde meta-beschrijving (meta-description) van je website om weer te geven in de zoekresultaten. Google neemt meestal de meta-beschrijving van je website over. Hieronder zie je hoe dat er nu uit ziet bij Google.
+					</p>
+				</div>
+				<img class="card-img-top" src="/assets/templates/landingpage/images/bongers_nl.png" alt="{{domain}} in Google">			
+			</div>
+		{% else %}
+			<div class="card">
+				<div class="card-body">
+		  		<div class="headstyling">
+		    		{{ domain }} heeft geen meta-beschrijving
+		  		</div>
+					<p class="card-text">
+						Hoe vertel je in een paar regels wat bezoekers allemaal op je website kunnen verwachten? Zoekmachines als Google en Bing gebruiken de zogenaamde meta-beschrijving (meta-description) van je website om weer te geven in de zoekresultaten. Zonder een metabeschrijving neemt Google meestal de eerste regels tekst van je website. Hieronder zie je hoe dat er nu uit ziet bij Google.
+					</p>
+				</div>
+				<img class="card-img-top" src="/assets/templates/landingpage/images/bongers_nl.png" alt="{{domain}} in Google">			
+			</div>
+
+		<div class="card">
+	      <div class="card-body">
+	        <a href="https://www.argeweb.nl/blog/yoast-seo/">
+	          <div class="headstyling">
+	            <span class="tipblack">Tip</span>Meta beschrijving toevoegen in WordPress voor {{domain}}
+	          </div>
+	        </a>
+
+	        <p class="card-text">Meta data in WordPress is gemakkelijk te implementeren doormiddel van de Yoast SEO plug-in. Deze plug-in geeft je uitgebreide tips voor het aanmaken en implementeren van Meta data. Zo controleert de plugin op lengte van de meta omschrijving. Belangrijk is om een veel gezocht zoekwoord vooraan de meta omschrijving te plaatsen om de zoekresultaten te bevorderen.
+	        </p>
+	      </div>
+
+	      <img class="card-img-top" src="/assets/templates/landingpage/images/yoast.png" alt="Yoast plugin">
+	      <div class="category">
+	        <span class="usability">Vindbaarheid</span>
+	      </div>
+	      <div class="card-footer">
+	        <a href="https://argeweb.nl/webdesign/" class="button">Hulp Nodig?</a>
+	      </div>
+	    </div>			
+  		{% endif %}  		
+ 
+   		{% if audits['image-alt'] %}
+		  <div class="card">
+		  	<div class="card-body">
+		      <div class="headstyling">
+		        {{ domain }} heeft goede beschrijvingen van afbeeldingen
+		      </div>
+					<p class="card-text">
+						Dat is goed!
+					</p>
+		  	</div>
+			</div>
+			{% else %}
+		  <div class="card">
+		  	<div class="card-body">
+		      <div class="headstyling">
+		        {{ domain }} heeft geen goede beschrijvingen van afbeeldingen
+		      </div>
+					<p class="card-text">
+						Dat is niet goed!
+					</p>
+		  	</div>
+			</div>
+  		{% endif %} 		
+  		  		
+	</div>
+
+  <div class="column-2 text-center">
+    <div class="userrate">
+      <div>
+        <app-category-score score="{{categories.seo|perc}}" color="#fad128"
+                            image="/assets/templates/landingpage/images/icon_seo.png"></app-category-score>
+      </div>
+      <span>Vindbaarheidsscore: {{categories.seo|perc}}/100</span>
+    </div>
+
+    <div class="mobiele-weergave">
+      <img
+        src="{% http 'url' %} ok://sitekick/render/templates/mockups/image?template=argeweb/iphone-x-small&type=png&domain={{domain}} {% endhttp %}"
+      alt="Mobiele weergave van de website">
+      </img>
+    </div>
   </div>
 </div>

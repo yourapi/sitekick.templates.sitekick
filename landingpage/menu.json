@@ -2,26 +2,32 @@
   "tag": "pages",
   "title": "Resultaten",
   "submenu": [
+     {
+      "tag": "pages/summary",
+      "title": "",
+      "url": "pages/summary",
+      "icon": "fa-home"
+    },
     {
       "tag": "pages/security",
       "title": "Veiligheid",
       "url": "pages/security",
       "icon": "fa-lock",
-      "suggestionCount": 1
+      "suggestionCount": 2
     },
     {
       "tag": "pages/user-experience",
       "title": "Gebruikerservaring",
       "url": "pages/user-experience",
       "icon": "fa-link",
-      "suggestionCount": 0
+      "suggestionCount": 2
     },
     {
       "tag": "pages/seo",
       "title": "Vindbaarheid",
       "url": "pages/seo",
       "icon": "fa-mobile-alt",
-      "suggestionCount": 1
+      "suggestionCount": 2
     }
   ]
 }

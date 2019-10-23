@@ -1,6 +1,58 @@
 {
-  "mobile": {
-    "src": [300, 560],
-    "dst": [[51, 127], [332, 127], [332, 647], [51, 647]]    
+  "transformations": {
+    "mobile": {
+      "src": [
+        300,
+        560
+      ],
+      "dst": [
+        [
+          51,
+          127
+        ],
+        [
+          332,
+          127
+        ],
+        [
+          332,
+          647
+        ],
+        [
+          51,
+          647
+        ]
+      ]
+    }
+  },
+  "print_areas": {
+    "date": {
+      "area": [
+        69,
+        55,
+        143,
+        73
+      ],
+      "alignment": "left,center",
+      "font": "roboto/Roboto-Regular.ttf",
+      "size": 9,
+      "color": "#000000"
+    },
+    "url": {
+      "area": [
+        68,
+        91,
+        289,
+        115
+      ],
+      "center": [
+        193,
+        103
+      ],
+      "alignment": "center,center",
+      "font": "roboto/Roboto-Regular.ttf",
+      "size": 12,
+      "color": "#000000"
+    }
   }
 }

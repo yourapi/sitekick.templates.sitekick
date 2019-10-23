@@ -4,35 +4,41 @@
     {% if custom.SitehulpSSL %}
     <div class="card">
       <div class="card-body">
-          <div class="headstyling">
-            {{ domain }} straalt veiligheid uit
-          </div>          
-        Zoals je eerder hebt kunnen lezen is Argeweb als eerste hosting provider in Nederland begonnen met het
-        actief adviseren van onze klanten over hun website. Eén van de onderdelen waar we naar kijken is of onze
-        klanten al SSL gebruiken voor hun website. Jouw website heeft het op dat punt al goed voor elkaar.
-        Jouw website scoort nu op het gebied van veiligheid beter dan 59% van de websites die bij Argeweb worden gehost!
-        Wist je trouwens dat je bij Argeweb ook een zogenaamd <b>EV certificaat</b> kunt afnemen? Bij een
-        <b>EV certificaat</b> staat de bedrijfsnaam van het bedrijf in de browserbalk, zoals je hieronder kunt
-        zien.<br/>
-      </div>  
-      <img class="card-img-top" src="/assets/templates/landingpage/images/https/ev-browser.jpg" alt="Extended Validation">
-    </div>        
+        <div class="headstyling">
+          {{ domain }} straalt veiligheid uit tot {{ sources.httpscertificate.report.validTo }}
+        </div>
+        <p class="card-text">Jouw website scoort nu op het gebied van veiligheid beter dan 59% van de websites die bij
+          Argeweb worden gehost!
+          Wist je trouwens dat je bij Argeweb ook een zogenaamd <b>EV certificaat</b> kunt afnemen? Bij een
+          <b>EV certificaat</b> staat de bedrijfsnaam van het bedrijf in de browserbalk, zoals je hieronder kunt
+          zien.<br/>
+        </p>
+      </div>
+      <img class="card-img-top" src="/assets/templates/landingpage/images/https/ev-browser.jpg"
+           alt="Extended Validation">
+      <div class="card-footer">
+        <a
+          href="https://www.argeweb.nl/bestellen/index.php?functie=SSL&hosttype=single&validation=extended&product_id=91&issuer=op_comodo&sslSubscriptionShared=1"
+          class="button">EV certificaat bestellen?</a>
+      </div>
+
+    </div>
     {% else %}
     <div class="card">
       <div class="card-body">
-        
-          <div class="headstyling">
-            {{ domain }} straalt <b>geen</b> veiligheid uit
-          </div>
-        
-          <p class="card-text">Op dit moment is je website alleen bereikbaar via
-        <a href="http://www.{{domain}}">http://www.{{domain}}</a> en <i>niet</i> onder http<b>s</b>://www.{{domain}}.
-        Kijk hieronder hoe dat eruit ziet voor bezoekers en wat er verbeterd kan worden.
-      </div>  
-      <img class="card-img-top" src="/assets/templates/landingpage/images/secure-not-secured-site.gif" alt="secure or not secure">
-    </div>
 
-    {% endif %}
+        <div class="headstyling">
+          {{ domain }} straalt <b>geen</b> veiligheid uit
+        </div>
+
+        <p class="card-text">Op dit moment is je website alleen bereikbaar via
+          <a href="http://www.{{domain}}">http://www.{{domain}}</a> en <i>niet</i> onder http<b>s</b>://www.{{domain}}.
+          Kijk hieronder hoe dat eruit ziet voor bezoekers en wat er verbeterd kan worden.
+        </p>
+      </div>
+      <img class="card-img-top" src="/assets/templates/landingpage/images/secure-not-secured-site.gif"
+           alt="secure or not secure">
+    </div>
 
     <div class="card">
       <div class="card-body">
@@ -45,20 +51,47 @@
         <p class="card-text">Ons vertrouwen in organisaties wordt tegenwoordig continu op de proef gesteld. Zo is uit
           een onderzoek van RTL Z gebleken dat bij het online inschrijven en/of afspraak maken bij de huisarts je
           gegevens in veel gevallen niet goed beveiligd zijn. Dit komt omdat dergelijke websites zonder een SSL
-          certificaat draaien. Jij wilt toch ook dat de gegevens van jou en je klanten goed beveiligd zijn?</p>
+          certificaat draaien. Jij wilt toch ook dat de gegevens van jou en je klanten goed beveiligd zijn?
+        </p>
       </div>
 
-      <img class="card-img-top" src="/assets/templates/landingpage/images/ssl-certificate.png" alt="">
+      <img class="card-img-top" src="/assets/templates/landingpage/images/ssl-certificate.png" alt="SSL certificaat">
       <div class="category">
         <span class="security">Veiligheid</span>
         <span class="usability">Vindbaarheid</span>
       </div>
       <div class="card-footer">
-        <a href="https://argeweb.nl/webdesign/" class="button">Hulp Nodig?</a>
+        <a
+          href="https://www.argeweb.nl/bestellen/index.php?functie=SSL&hosttype=single&validation=domain&product_id=93&issuer=op_comodo&sslSubscriptionShared=1"
+          class="button">Bestel een SSL certificaat</a>
       </div>
 
     </div>
+    {% endif %}
 
+    {% if audits['no-vulnerable-libraries'] %}
+    <div class="card">
+      <div class="card-body">
+        <div class="headstyling">
+          Geen programmaonderdelen ontdekt op {{ domain }} die kwetsbaar zijn
+        </div>
+        <p class="card-text">
+          Dat is goed!
+        </p>
+      </div>
+    </div>
+    {% else %}
+    <div class="card">
+      <div class="card-body">
+        <div class="headstyling">
+          {{ domain }} heeft onderdelen die kwetsbaar zijn
+        </div>
+        <p class="card-text">
+          Dat is niet goed!
+        </p>
+      </div>
+    </div>
+    {% endif %}
   </div>
 
   <div class="column-2 text-center">
@@ -67,13 +100,17 @@
         <app-category-score score="{{categories.accessibility|perc}}" color="#0cc100"
                             image="/assets/templates/landingpage/images/icon_security.png"></app-category-score>
       </div>
-      <span>Veiligheidsscore</span>
+      <span>Veiligheidsscore: {{categories.accessibility|perc}}/100</span>
     </div>
 
     <div class="mobiele-weergave">
-      <img
-        src="{% http 'url' %} ok://sitekick/render/templates/mockups/image?template=argeweb/iphone-x-small&type=png&domain={{domain}} {% endhttp %}"
-        alt="Mobiele weergave van de website">
+      {% img %}
+      template=argeweb/iphone-x-small
+      type=png
+      alt="Mobiele weergave van de website"
+      date="{{timestamp | date}}"
+      url="{{domain}}"
+      {% endimg %}
     </div>
   </div>
 </div>

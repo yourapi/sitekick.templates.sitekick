@@ -60,7 +60,7 @@
   <div class="column-2 text-center">
     <div class="userrate">
       <div>
-        <app-category-score score="87" color="#0cc100"
+        <app-category-score score="{{ categories.performance | perc }}" color="#0cc100"
                             image="/assets/templates/landingpage/images/user-experience-score.png"></app-category-score>
       </div>
       <span>Gebruikers ervaring</span>
@@ -68,7 +68,7 @@
 
     <div class="mobiele-weergave">
       <img
-        src="{% http 'url' %} ok://sitekick/render/templates/mockups/image?template=iphone-x-small&type=png&domain={{domain}} {% endhttp %}"
+        src="{% http 'url' %} ok://sitekick/render/templates/mockups/image?template=argeweb/iphone-x-small&type=png&domain={{domain}} {% endhttp %}"
         alt="Mobiele weergave van de website">
     </div>
   </div>

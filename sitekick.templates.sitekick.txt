@@ -1,0 +1,9 @@
+File for easy identification of repo. At this moment, some assets are needed in the /src/assets/templates directory
+of the argeweb-landingpage website. 
+To enable easy switching between various brands, make a symlink in the /src/assets directory. In Windows Powershell, 
+in elevated mode:
+New-Item -ItemType SymbolicLink -Path "D:\Dropbox\workspace\argeweb-landingpage\src\assets\templates" -Target "D:\Dropbox\workspace\sitekick.templates.sitekick"
+Replace `Path` and `Target` with your specific situation.
+
+
+New-Item -ItemType SymbolicLink -Path "D:\Dropbox\workspace\demo1-sitekick-landingpage\src\assets\templates" -Target "D:\Dropbox\workspace\sitekick.templates.demo1"
